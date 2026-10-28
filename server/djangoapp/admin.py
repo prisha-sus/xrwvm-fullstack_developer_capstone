@@ -9,6 +9,7 @@ class CarModelInline(admin.TabularInline):
     model = CarModel
     extra = 1
 
+
 # CarModelAdmin class
 class CarModelAdmin(admin.ModelAdmin):
     list_display = ['name', 'car_make', 'type', 'year', 'dealer_id']
@@ -21,6 +22,7 @@ class CarMakeAdmin(admin.ModelAdmin):
     inlines = [CarModelInline]
     list_display = ['name', 'description', 'country_of_origin']
     search_fields = ['name']
+
 
 # Register models here
 admin.site.register(CarMake, CarMakeAdmin)
