@@ -1,7 +1,6 @@
 # Uncomment the following imports before adding the Model code
 
 from django.db import models
-from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -35,14 +34,14 @@ class CarModel(models.Model):
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     dealer_id = models.IntegerField(default=1)  # Added default value
     name = models.CharField(max_length=100)
-    
+
     # Limited choices for Car Type
     SEDAN = 'Sedan'
     SUV = 'SUV'
     WAGON = 'Wagon'
     HATCHBACK = 'Hatchback'
     CONVERTIBLE = 'Convertible'
-    
+
     CAR_TYPES = [
         (SEDAN, 'Sedan'),
         (SUV, 'SUV'),
@@ -50,13 +49,13 @@ class CarModel(models.Model):
         (HATCHBACK, 'Hatchback'),
         (CONVERTIBLE, 'Convertible'),
     ]
-    
+
     type = models.CharField(
         max_length=20,
         choices=CAR_TYPES,
         default=SEDAN
     )
-    
+
     # Year validation
     year = models.IntegerField(
         default=2023,
